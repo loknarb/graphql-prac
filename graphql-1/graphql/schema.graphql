@@ -1,0 +1,8 @@
+type TestData {
+  text: String
+  views: Int
+}
+
+type Query {
+  TestData: TestData
+}
