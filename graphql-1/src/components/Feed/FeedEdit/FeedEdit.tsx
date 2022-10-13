@@ -74,11 +74,7 @@ const FeedEdit: React.FC<Props> = ({
     // }
   }, [editing, selectedPost]);
 
-  const postInputChangeHandler = (
-    input: "title" | "image" | "content",
-    value: string,
-    files: FileList | null | undefined
-  ) => {
+  const postInputChangeHandler = (value: string, files: FileList | null | undefined) => {
     if (files) {
       generateBase64FromImage(files[0])
         .then((b64) => {
@@ -170,8 +166,10 @@ const FeedEdit: React.FC<Props> = ({
             touched={postForm["image"].touched}
           />
           <div className="new-post__preview-image">
-            {!imagePreview && <p>Please choose an image.</p>}
-            {imagePreview && <Image imageUrl={imagePreview} contain left />}
+            <>
+              {!imagePreview && <p>Please choose an image.</p>}
+              {imagePreview && <Image imageUrl={imagePreview} contain left />}
+            </>
           </div>
           <Input
             id="content"

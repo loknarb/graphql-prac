@@ -8,7 +8,7 @@ const filePicker = (props: {
   valid: boolean;
   touched: boolean;
   onBlur: () => void;
-  onChange: (id: string, value: string, files: FileList | null) => void;
+  onChange: (id: "title" | "image" | "content",, value: string, files: FileList | null) => void;
   control: "input" | "textarea";
 }) => (
   <div className={`${props.control}`}>
